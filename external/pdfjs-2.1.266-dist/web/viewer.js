@@ -1801,6 +1801,7 @@ function webViewerInitialized() {
   var queryString = document.location.search.substring(1);
   var params = (0, _ui_utils.parseQueryString)(queryString);
   file = 'file' in params ? params.file : _app_options.AppOptions.get('defaultUrl');
+  console.log('file', file);
   validateFileURL(file);
   var fileInput = document.createElement('input');
   fileInput.id = appConfig.openFileInputName;
@@ -5136,7 +5137,7 @@ var defaultOptions = {
     kind: OptionKind.VIEWER
   },
   defaultUrl: {
-    value: 'https://py-vue-project-1313215796.cos.ap-beijing.myqcloud.com/1.pdf',
+    value: pdfUrl,
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
