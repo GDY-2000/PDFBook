@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <style>
+      .bookshelf {
+        display: flex;
+      }
+      .book {
+        position: relative;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .cover {
+        width: 100%;
+      }
+      .title {
+        width: calc(100% - 40px);
+        display: block;
+        text-align: center;
+        font-size: 24px;
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        line-height: 50px;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.3);
+        /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+      }
+    </style>
+    <script src="../../jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+    <div class="bookshelf">
+      <div class="book" data="1.pdf">
+        <img class="cover" src="./images/015824XZf.jpg" alt="" srcset="" />
+        <span class="title">书籍</span>
+      </div>
+      <div class="book" data="2.pdf">
+        <img class="cover" src="./images/015824XZf.jpg" alt="" srcset="" />
+        <span class="title">书籍</span>
+      </div>
+      <div class="book" data="3.pdf">
+        <img class="cover" src="./images/015824XZf.jpg" alt="" srcset="" />
+        <span class="title">书籍</span>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".book").click(function () {
+          // 获取点击的书籍元素的 data 属性值
+          var dataValue = $(this).attr("data");
+
+          // 拼接 URL
+          var baseUrl =
+            "http://192.168.194.1/pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html";
+            var fullUrl = baseUrl + "?dataValue=" + dataValue;
+
+          // 在这里使用 fullUrl，例如进行页面重定向
+          window.location.href = fullUrl;
+        });
+      });
+    </script>
+  </body>
+</html>
