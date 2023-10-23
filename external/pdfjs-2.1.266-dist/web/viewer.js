@@ -1757,9 +1757,9 @@ var validateFileURL;
           origin = _ref8.origin,
           protocol = _ref8.protocol;
 
-      if (origin !== viewerOrigin && protocol !== 'blob:') {
-        throw new Error('file origin does not match viewer\'s');
-      }
+      // if (origin !== viewerOrigin && protocol !== 'blob:') {
+      //   throw new Error('file origin does not match viewer\'s');
+      // }
     } catch (ex) {
       var message = ex && ex.message;
       PDFViewerApplication.l10n.get('loading_error', null, 'An error occurred while loading the PDF.').then(function (loadingErrorMessage) {
@@ -1797,6 +1797,7 @@ function webViewerInitialized() {
   var queryString = document.location.search.substring(1);
   var params = (0, _ui_utils.parseQueryString)(queryString);
   file = 'file' in params ? params.file : _app_options.AppOptions.get('defaultUrl');
+  console.log(file);
   validateFileURL(file);
   var fileInput = document.createElement('input');
   fileInput.id = appConfig.openFileInputName;
@@ -5132,7 +5133,7 @@ var defaultOptions = {
     kind: OptionKind.VIEWER
   },
   defaultUrl: {
-    value: 'compressed.tracemonkey-pldi-09.pdf',
+    value: 'https://py-vue-project-1313215796.cos.ap-beijing.myqcloud.com/1.pdf',
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
